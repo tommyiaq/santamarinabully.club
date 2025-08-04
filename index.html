@@ -46,7 +46,19 @@
 </head>
 <body>
   <div>
-    <div class="message">Fuck You</div>
+    <div class="message" id="message">Loading...</div>
   </div>
+
+  <script>
+    // Load message from file
+    fetch('message.txt')
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById('message').textContent = text.trim();
+      })
+      .catch(err => {
+        document.getElementById('message').textContent = 'Error loading message';
+      });
+  </script>
 </body>
 </html>
