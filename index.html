@@ -1,64 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
+Here's a clean, self-contained HTML page using “Duve” as the page title (and suggested URL/slug). You can save it as duve.html.
+
+<!doctype html>
+<html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fuck You</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Duve</title>
+  <meta name="description" content="Regole e posizione - Duve" />
+  <meta property="og:title" content="Duve" />
+  <meta property="og:description" content="Regole e posizione - Duve" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body, html {
-      height: 100%;
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    
-    .message {
-      font-size: 5rem;
-      font-weight: bold;
-      text-shadow: 2px 2px 4px rgba(255,255,255,0.3);
-    }
-    
-    .emoji {
-      font-size: 8rem;
-      margin: 2rem 0;
-      display: block;
-    }
-    
-    @media (max-width: 768px) {
-      .message {
-        font-size: 3rem;
-      }
-      .emoji {
-        font-size: 5rem;
-      }
-    }
+    :root { --bg:#0f0f12; --card:#17171c; --text:#f5f5f7; --muted:#a0a0a6; --accent:#7dd3fc; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; background: var(--bg); color: var(--text); }
+    .wrap { max-width: 720px; margin: 48px auto; padding: 0 20px; }
+    header { margin-bottom: 28px; }
+    h1 { font-size: 2.25rem; line-height: 1.2; margin: 0 0 6px; }
+    .slug { font-size: .95rem; color: var(--muted); }
+    .card { background: var(--card); border-radius: 18px; padding: 20px; box-shadow: 0 10px 24px rgba(0,0,0,.25); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ol { margin: 14px 0 0; padding-left: 1.25rem; }
+    li { margin: 8px 0; }
+    footer { color: var(--muted); font-size: .9rem; margin-top: 28px; }
   </style>
 </head>
 <body>
-  <div>
-    <div class="message" id="message">Loading...</div>
+  <div class="wrap">
+    <header>
+      <h1>Duve</h1>
+      <div class="slug">URL / nome pagina: <code>/duve</code></div>
+    </header>
+
+    <section class="card" aria-labelledby="posizione">
+      <h2 id="posizione" style="margin-top:0">Falo — Posizione</h2>
+      <p>
+        <a href="https://maps.app.goo.gl/QKTawrKrmegcKBHv6" target="_blank" rel="noopener">Apri su Google&nbsp;Maps</a>
+      </p>
+    </section>
+
+    <section class="card" style="margin-top:16px" aria-labelledby="regole">
+      <h2 id="regole" style="margin-top:0">Regole</h2>
+      <ol>
+        <li>Lasciare pulito</li>
+        <li>Non versare cocktail sulle casse</li>
+        <li>Non versare cocktail sulle casse</li>
+        <li>Jamu</li>
+      </ol>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Duve
+    </footer>
   </div>
 
   <script>
-    // Load message from file
-    fetch('message.txt')
-      .then(response => response.text())
-      .then(text => {
-        document.getElementById('message').textContent = text.trim();
-      })
-      .catch(err => {
-        document.getElementById('message').textContent = 'Error loading message';
-      });
+    // Aggiorna l'anno nel footer automaticamente
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+
